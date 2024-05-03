@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "998225322713",
+    "project_id": "androidchatbot-fc6e2",
+    "storage_bucket": "androidchatbot-fc6e2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:998225322713:android:ba2e50f851f504fdbb14c8",
+        "android_client_info": {
+          "package_name": "com.example.androidchatbot"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABrBaWEwynHgvfpLOo6_BNdNu8N68WG1M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
