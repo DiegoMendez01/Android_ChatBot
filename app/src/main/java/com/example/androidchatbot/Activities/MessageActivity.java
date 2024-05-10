@@ -7,9 +7,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.PopupMenu;
 
 import com.example.androidchatbot.Adapters.MessagesAdapter;
+import com.example.androidchatbot.MainActivity;
 import com.example.androidchatbot.Models.Messages;
 import com.example.androidchatbot.utils.MemoryData;
 import com.google.firebase.database.DataSnapshot;
@@ -64,6 +69,13 @@ public class MessageActivity extends AppCompatActivity {
         progressDialog.setCancelable(false);
         progressDialog.setMessage("Cargando...");
         progressDialog.show();
+
+        profileUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onClicMenuView(v);
+            }
+        });
 
         mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -141,5 +153,25 @@ public class MessageActivity extends AppCompatActivity {
                 // Manejar error de la base de datos
             }
         });
+    }
+    // Llamar al menuView
+    private void onClicMenuView(View view)
+    {
+        PopupMenu popupMenu = new PopupMenu(this, view);
+        popupMenu.inflate(R.menu.menu_profile);
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                int idItem = item.getItemId();
+                if (idItem == R.id.itemCerrarSesion) {
+                    Intent intent = new Intent(MessageActivity.this, MainActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+                return false;
+            }
+        });
+
+        popupMenu.show();
     }
 }
